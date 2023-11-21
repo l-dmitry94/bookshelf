@@ -1,0 +1,164 @@
+.header {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+    border: 1.5px solid $black;
+    background-color: $white;
+    padding: 18px 0;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__logo-title {
+        width: 77px;
+        height: 13px;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    &__switcher {
+        position: relative;
+        width: 40px;
+        height: 20px;
+        background: linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%);
+        box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.10) inset;
+        border-radius: 16px;
+    }
+
+    &__switcher-circle {
+        position: absolute;
+        left: 1px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background-color: $white;
+        border-radius: 50%;
+    }
+
+    &__burger {
+        fill: transparent;
+        stroke: $black;
+    }
+
+    &__burger-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    background-image: url(../images/mobile-menu-bg.png), radial-gradient(189.32% 190.93% at 59.76% -23.42%, $violet 18.03%, $white 100%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    padding: 106px 0 20px;
+
+    & .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    &__sign {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 184px;
+        height: 48px;
+        color: $white;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+        border-radius: 18px;
+        border: 1.5px solid $black;
+        background-color: $violet;
+        padding: 0 14px;
+    }
+
+    &__sign-icon {
+        width: 20px;
+        height: 20px;
+        fill: transparent;
+        stroke: $yellow;
+    }
+
+    &__menu {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__menu-item {
+        &.active .mobile__menu-link {
+            display: inline-block;
+            color: $black;
+            font-weight: 700;
+            border-radius: 36px;
+            background-color: $yellow;
+            padding: 8px 16px;
+        }
+    }
+
+    &__menu-link {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: $white;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+    }
+
+    &__menu-link-icon {
+        width: 20px;
+        height: 20px;
+        fill: $white;
+    }
+
+    &__logout {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        width: 118px;
+        height: 48px;
+        color: $black;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+        background-color: $white;
+        border-radius: 18px;
+        border: 1.5px solid $black;
+    }
+}

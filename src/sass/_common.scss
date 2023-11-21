@@ -1,1 +1,17 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:regular,500,700&display=swap");
+
+body {
+    position: relative;
+    font-family: "DM Sans";
+    color: $black;
+    font-size: 16px;
+    background-color: $bg-color;
+}
+
+.container {
+    max-width: 375px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
