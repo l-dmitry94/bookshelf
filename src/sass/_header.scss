@@ -72,7 +72,6 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom;
-    padding: 106px 0 20px;
 
     & .container {
         display: flex;
@@ -80,6 +79,8 @@
         justify-content: space-between;
         width: 100vw;
         height: 100vh;
+        padding: 106px 20px 20px;
+
     }
 
     &__sign {
