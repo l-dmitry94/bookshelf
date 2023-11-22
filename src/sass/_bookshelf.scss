@@ -1,0 +1,111 @@
+.bookshelf {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__category {
+        color: $grey;
+        font-size: 14px;
+        line-height: 1.29;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 8px;
+    }
+
+    &__list-item {
+        &:not(:first-child) {
+            display: none;
+        }
+    }
+
+    &__list-img {
+        border-radius: 8px;
+        margin-bottom: 14px;
+    }
+
+    &__list-title {
+        font-size: inherit;
+        line-height: 1.13;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+
+    &__list-author {
+        color: $grey;
+        font-size: 12px;
+        font-style: italic;
+        line-height: 1.17;
+        letter-spacing: -0.04em;
+    }
+
+    &__more {
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+        padding: 0 32px;
+    }
+
+    .bookshelf {
+        &__category {
+            line-height: 1.71;
+        }
+
+        &__list {
+            flex-direction: row;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        &__list-item {
+            flex-basis: calc((100% - 50px) / 3);
+            &:not(:first-child) {
+                display: block;
+            }
+
+            &:not(:nth-child(-n + 3)) {
+                display: none;
+            }
+        }
+    }
+    .title {
+        font-size: 48px;
+        line-height: 1.08;
+    }
+}
+
+@media (min-width: 1440px) {
+    .bookshelf {
+        &__list {
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        &__list-item {
+            flex-basis: calc((100% - 96px) / 5);
+
+            &:not(:nth-child(-n + 3)) {
+                display: block;
+            }
+    
+            &:not(:nth-child(-n + 5)) {
+                display: none;
+            }
+        }
+    }
+}

@@ -14,6 +14,11 @@
         align-items: center;
     }
 
+    &__left {
+        display: flex;
+        gap: 40px;
+    }
+
     &__logo {
         display: flex;
         align-items: center;
@@ -23,6 +28,10 @@
     &__logo-title {
         width: 77px;
         height: 13px;
+    }
+
+    &__menu {
+        display: none;
     }
 
     &__right {
@@ -51,6 +60,30 @@
         border-radius: 50%;
     }
 
+    &__sign {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        width: 184px;
+        height: 48px;
+        color: $white;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+        border-radius: 18px;
+        border: 1.5px solid $black;
+        background-color: $violet;
+        padding: 0 14px;
+    }
+
+    &__sign-icon {
+        width: 20px;
+        height: 20px;
+        fill: transparent;
+        stroke: $yellow;
+    }
+
     &__burger {
         fill: transparent;
         stroke: $black;
@@ -62,7 +95,69 @@
     }
 }
 
+@media (min-width: 768px) {
+
+    .header {
+        padding: 12px 0;
+
+        &__menu {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+    
+        &__menu-item {
+            &.active .header__menu-link {
+                display: inline-block;
+                font-weight: 700;
+                border-radius: 36px;
+                background-color: $yellow;
+                padding: 8px 16px;
+            }
+        }
+    
+        &__menu-link {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.29;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+    
+        &__menu-link-icon {
+            width: 20px;
+            height: 20px;
+            fill: $white;
+        }
+
+        &__right {
+            gap: 24px;
+        }
+
+        &__sign {
+            display: flex;
+        }
+
+        &__burger {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+
+    .header {
+        &__menu {
+            gap: 24px;
+        }
+    }
+}
+
 .mobile {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -73,6 +168,12 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom;
+
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+        background-image: url(../images/mobile-menu-bg@2x.png), radial-gradient(189.32% 190.93% at 59.76% -23.42%, $violet 18.03%, $white 100%);
+
+    }
 
     & .container {
         display: flex;
