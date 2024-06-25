@@ -1,0 +1,14 @@
+.overlay {
+    @apply absolute left-0 top-0 z-10 h-screen w-screen bg-gradient-to-b from-[#4f2ee8] to-[#dcdcdc];
+}
+
+.content {
+    @apply fixed left-0 top-0 z-20 h-full w-full pb-5 pt-[104px];
+}
+
+.wrapper {
+    @apply mx-auto flex h-full max-w-screen-mobile flex-col justify-between px-5;
+}
+.navigationWrapper {
+    @apply flex justify-center;
+}

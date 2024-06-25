@@ -1,0 +1,7 @@
+.burgerButton {
+    @apply flex items-center justify-center;
+}
+
+.burgerIcon {
+    @apply h-7 w-7 fill-transparent stroke-primary transition-colors duration-300 ease-linear;
+}

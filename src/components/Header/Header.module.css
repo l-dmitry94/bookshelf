@@ -1,0 +1,15 @@
+.header {
+    @apply relative rounded-b-lg border-[1.5px] border-primary bg-primary-white py-[18px] z-20;
+}
+
+.container {
+    @apply mx-auto max-w-screen-desktop px-5 tablet:px-8 desktop:px-6;
+}
+
+.wrapper {
+    @apply flex items-center justify-between;
+}
+
+.right {
+    @apply flex items-center gap-[14px];
+}

@@ -1,0 +1,11 @@
+.authButton {
+    @apply flex h-12 w-[184px] items-center justify-between rounded-[18px] border-[1.5px] border-primary bg-primary-violet px-[14px];
+}
+
+.arrowRightIcon {
+    @apply h-5 w-5 fill-transparent stroke-primary-yellow;
+}
+
+.authButtonText {
+    @apply text-sm font-medium leading-tight tracking-tighter text-primary-white;
+}

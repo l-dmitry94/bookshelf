@@ -1,0 +1,19 @@
+.navigationList {
+    @apply mt-[126px] flex flex-col gap-4;
+}
+
+.navigationLink {
+    @apply inline-flex items-center gap-1 text-sm font-medium uppercase leading-tight tracking-tighter text-primary-white;
+}
+
+.navigationLink:global(.active) {
+    @apply bg-primary-yellow text-primary py-2 px-4 rounded-[36px] font-bold
+}
+
+.navigationLink:global(.active) .cartIcon {
+    @apply fill-primary
+}
+
+.cartIcon {
+    @apply w-5 h-5 fill-primary-white
+}

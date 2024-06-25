@@ -1,0 +1,11 @@
+.logoutButton {
+    @apply inline-flex items-center gap-1 self-start rounded-[18px] border-[1.5px] border-primary bg-primary-white px-6 py-[14px];
+}
+
+.logoutButtonText {
+    @apply text-sm font-medium leading-tight -tracking-wider text-primary;
+}
+
+.arrowRightIcon {
+    @apply h-5 w-5 fill-transparent stroke-primary-yellow;
+}

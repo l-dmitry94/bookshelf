@@ -1,0 +1,7 @@
+.switcherButton {
+    @apply relative flex h-5 w-10 rounded-[20px] bg-gradient-to-b from-[#4f2ee8] to-[#dcdcdc];
+}
+
+.switcherCircle {
+    @apply absolute left-[1px] top-2/4 h-[18px] w-[18px] -translate-y-2/4 rounded-full bg-gradient-to-b from-white to-[#f7f7f7];
+}

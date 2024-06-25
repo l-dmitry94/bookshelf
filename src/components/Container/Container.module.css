@@ -1,0 +1,3 @@
+.container {
+    @apply max-w-screen-mobile tablet:max-w-screen-tablet tablet:px-8 desktop:max-w-screen-desktop desktop:px-6 mx-auto px-5;
+}
