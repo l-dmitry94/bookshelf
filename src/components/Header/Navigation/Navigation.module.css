@@ -1,13 +1,13 @@
 .navigationList {
-    @apply mt-[126px] flex flex-col gap-4 tablet:mt-0 tablet:flex-row tablet:items-center tablet:gap-6;
+    @apply mt-[126px] flex flex-col gap-4 tablet:mt-0 tablet:flex-row tablet:items-center;
 }
 
 .navigationLink {
-    @apply inline-flex items-center gap-1 text-sm font-medium uppercase leading-tight tracking-tighter text-primary-white tablet:text-primary;
+    @apply inline-flex items-center gap-1 px-4 py-2 text-sm font-medium uppercase leading-tight tracking-tighter text-primary-white tablet:text-primary;
 }
 
 .navigationLink:global(.active) {
-    @apply rounded-[36px] bg-primary-yellow px-4 py-2 font-bold text-primary;
+    @apply rounded-[36px] bg-primary-yellow font-bold text-primary;
 }
 
 .navigationLink:global(.active) .cartIcon {
