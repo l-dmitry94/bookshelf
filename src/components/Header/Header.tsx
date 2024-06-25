@@ -23,7 +23,7 @@ const Header = () => {
                         </div>
                         <div className={css.right}>
                             <ThemeSwitcher />
-                            <BurgerButton />
+                            <BurgerButton onClick={() => {}} />
                         </div>
                     </div>
                 </div>
