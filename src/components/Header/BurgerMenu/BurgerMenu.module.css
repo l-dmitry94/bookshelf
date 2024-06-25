@@ -1,9 +1,9 @@
 .overlay {
-    @apply absolute left-0 top-0 z-10 h-screen w-screen bg-gradient-to-b from-[#4f2ee8] to-[#dcdcdc];
+    @apply absolute left-0 top-0 z-10 h-screen w-screen bg-gradient-to-b from-[#4f2ee8] to-[#dcdcdc] transition-all duration-300 ease-linear;
 }
 
 .content {
-    @apply fixed left-0 top-0 z-20 h-full w-full pb-5 pt-[104px];
+    @apply fixed left-0 top-0 z-20 h-full w-full bg-[url('../../../assets/images/books.png')] bg-bottom bg-no-repeat pb-5 pt-[104px] transition-all duration-300 ease-linear;
 }
 
 .wrapper {

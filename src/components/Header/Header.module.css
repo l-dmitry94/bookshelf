@@ -1,5 +1,5 @@
 .header {
-    @apply relative rounded-b-lg border-[1.5px] border-primary bg-primary-white py-[18px] z-20;
+    @apply relative rounded-b-lg border-[1.5px] border-primary bg-primary-white py-[18px] z-40;
 }
 
 .container {
@@ -8,6 +8,10 @@
 
 .wrapper {
     @apply flex items-center justify-between;
+}
+
+.left {
+    @apply flex items-center gap-10
 }
 
 .right {

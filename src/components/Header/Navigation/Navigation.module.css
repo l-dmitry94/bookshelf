@@ -1,19 +1,19 @@
 .navigationList {
-    @apply mt-[126px] flex flex-col gap-4;
+    @apply mt-[126px] flex flex-col gap-4 tablet:mt-0 tablet:flex-row tablet:gap-6 tablet:flex-row tablet:items-center;
 }
 
 .navigationLink {
-    @apply inline-flex items-center gap-1 text-sm font-medium uppercase leading-tight tracking-tighter text-primary-white;
+    @apply inline-flex items-center gap-1 text-sm font-medium uppercase leading-tight tracking-tighter text-primary-white tablet:text-primary;
 }
 
 .navigationLink:global(.active) {
-    @apply bg-primary-yellow text-primary py-2 px-4 rounded-[36px] font-bold
+    @apply rounded-[36px] bg-primary-yellow px-4 py-2 font-bold text-primary;
 }
 
 .navigationLink:global(.active) .cartIcon {
-    @apply fill-primary
+    @apply fill-primary;
 }
 
 .cartIcon {
-    @apply w-5 h-5 fill-primary-white
+    @apply h-5 w-5 fill-primary-white tablet:fill-primary;
 }

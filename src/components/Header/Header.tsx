@@ -1,16 +1,26 @@
+import { useEffect, useState } from 'react';
+
 import Logo from './Logo';
 import Navigation from './Navigation';
-
-import navigationItems from './navigation.json';
-
-import css from './Header.module.css';
-import { useMedia } from 'hooks/useMedia';
 import ThemeSwitcher from './ThemeSwitcher';
 import BurgerButton from './BurgerButton';
 import BurgerMenu from './BurgerMenu';
 
+import navigationItems from './navigation.json';
+import { useMedia } from 'hooks/useMedia';
+
+import css from './Header.module.css';
+import Auth from './Auth';
+
 const Header = () => {
     const { isMobile } = useMedia();
+    const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (!isMobile) {
+            setMenuIsOpen(false);
+        }
+    }, [isMobile]);
 
     return (
         <div className="relative">
@@ -23,13 +33,19 @@ const Header = () => {
                         </div>
                         <div className={css.right}>
                             <ThemeSwitcher />
-                            <BurgerButton onClick={() => {}} />
+                            {isMobile && (
+                                <BurgerButton
+                                    isOpen={menuIsOpen}
+                                    onClick={() => setMenuIsOpen(!menuIsOpen)}
+                                />
+                            )}
+                            {!isMobile && <Auth />}
                         </div>
                     </div>
                 </div>
             </header>
 
-            <BurgerMenu />
+            {isMobile && <BurgerMenu isOpen={menuIsOpen} />}
         </div>
     );
 };
