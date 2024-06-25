@@ -1,5 +1,5 @@
 .navigationList {
-    @apply mt-[126px] flex flex-col gap-4 tablet:mt-0 tablet:flex-row tablet:gap-6 tablet:flex-row tablet:items-center;
+    @apply mt-[126px] flex flex-col gap-4 tablet:mt-0 tablet:flex-row tablet:items-center tablet:gap-6;
 }
 
 .navigationLink {
