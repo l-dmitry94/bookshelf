@@ -1,0 +1,11 @@
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .iconText {
+        width: 77px;
+        height: 14px;
+        fill: $black;
+    }
+}

@@ -1,0 +1,57 @@
+.userBar {
+    .btn {
+        @include media-rules(tablet) {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background-color: $violet;
+            border-radius: 36px;
+            padding: 4px 12px;
+        }
+    }
+    .wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .avatar {
+        object-fit: cover;
+    }
+
+    .avatar,
+    .defaultIconWrapper {
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+    }
+
+    .defaultIconWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $white-1;
+    }
+
+    .defaultIcon {
+        width: 19px;
+        height: 19px;
+        fill: $violet;
+    }
+
+    .name {
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: -0.02em;
+        color: $white;
+    }
+
+    .arrowDown {
+        display: none;
+
+        @include media-rules(tablet) {
+            display: block;
+            fill: $white;
+        }
+    }
+}

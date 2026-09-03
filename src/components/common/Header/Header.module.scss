@@ -1,0 +1,35 @@
+.header {
+    position: relative;
+    background-color: $white;
+    border: 1.5px solid $black;
+    border-radius: 0 0 8px 8px;
+    padding: 18px 0;
+
+    @include media-rules(tablet) {
+        padding: 14px 0;
+    }
+
+    .leftWrapper {
+        @include media-rules(tablet) {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .rightWrapper {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        @include media-rules(tablet) {
+            gap: 24px;
+        }
+    }
+}
