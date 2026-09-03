@@ -1,0 +1,16 @@
+@use 'reset';
+
+.app {
+    min-height: 100vh;
+    font-family: $font-family;
+
+    &.light {
+        background-color: $white-1;
+        color: $black;
+    }
+
+    &.dark {
+        background-color: $black-1;
+        color: $white;
+    }
+}
