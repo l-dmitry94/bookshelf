@@ -4,6 +4,7 @@ import type { FC, SVGProps } from 'react';
 import scss from './Icon.module.scss';
 
 type Variant =
+    | 'arrow-right'
     | 'bookshelf'
     | 'burger'
     | 'caret-down'
@@ -12,7 +13,8 @@ type Variant =
     | 'chevron-group'
     | 'close'
     | 'logo'
-    | 'trash';
+    | 'trash'
+    | 'user';
 
 interface Props extends SVGProps<SVGSVGElement> {
     variant: Variant;

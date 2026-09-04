@@ -1,0 +1,49 @@
+.navigationBar {
+    align-self: center;
+
+    .list {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+
+        @include media-rules(tablet) {
+            flex-direction: row;
+            gap: 0;
+        }
+    }
+
+    .link {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 129%;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: $white;
+        padding: 8px 16px;
+
+        @include media-rules(tablet) {
+            color: $black;
+        }
+
+        &:global(.active) {
+            font-weight: 700;
+            color: $black;
+            background-color: $yellow;
+            border-radius: 36px;
+        }
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        fill: $white;
+
+        @include media-rules(tablet) {
+            fill: $black;
+        }
+    }
+}

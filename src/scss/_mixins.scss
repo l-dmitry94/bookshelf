@@ -16,6 +16,10 @@
     }
 }
 
-@mixin transition($property) {
-    transition: $property 0.3s ease-in-out;
+@mixin transition($properties...) {
+    $transitions: ();
+    @each $prop in $properties {
+        $transitions: append($transitions, $prop 0.3s ease-in-out, comma);
+    }
+    transition: $transitions;
 }
