@@ -1,39 +1,43 @@
+.userBarWrapper {
+    @include media-rules(tablet) {
+        position: relative;
+    }
+}
+
 .userBar {
-    .btn {
-        @include media-rules(tablet) {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            background-color: $violet;
-            border-radius: 36px;
-            padding: 4px 12px;
-        }
+    @include media-rules(tablet) {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        background-color: $violet;
+        border-radius: 36px;
+        cursor: pointer;
+        padding: 4px 12px;
     }
     .wrapper {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 9px;
     }
 
-    .avatar {
-        object-fit: cover;
-    }
-
-    .avatar,
-    .defaultIconWrapper {
+    .imageWrapper {
         width: 37px;
         height: 37px;
-        border-radius: 50%;
-    }
-
-    .defaultIconWrapper {
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: $white-1;
+        border-radius: 50%;
+        overflow: hidden;
     }
 
-    .defaultIcon {
+    .avatar {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .userIcon {
         width: 19px;
         height: 19px;
         fill: $violet;
@@ -46,11 +50,13 @@
         color: $white;
     }
 
-    .arrowDown {
+    .arrowIcon {
         display: none;
 
         @include media-rules(tablet) {
             display: block;
+            width: 23px;
+            height: 26px;
             fill: $white;
         }
     }

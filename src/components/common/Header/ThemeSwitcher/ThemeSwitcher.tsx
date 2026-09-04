@@ -2,9 +2,9 @@ import scss from './ThemeSwitcher.module.scss';
 
 const ThemeSwitcher = () => {
     return (
-        <div className={scss.switcher}>
-            <span className={scss.cirlce}></span>
-        </div>
+        <button className={scss.themeSwitcher}>
+            <span className={scss.circle}></span>
+        </button>
     );
 };
 

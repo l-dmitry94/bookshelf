@@ -1,5 +1,9 @@
 @use 'reset';
 
+body {
+    overflow-x: hidden;
+}
+
 .app {
     min-height: 100vh;
     font-family: $font-family;

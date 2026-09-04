@@ -1,29 +1,24 @@
-.switcher {
+.themeSwitcher {
     position: relative;
     width: 40px;
     height: 20px;
     background: linear-gradient(180deg, $violet 0%, #dcdcdc 100%);
-    box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: inset 1px 1px 2px 0 rgba($black, 0.1);
     border-radius: 10px;
 
-    &.active .cirlce {
-        left: auto;
-        right: 1px;
-    }
-
-    .cirlce {
+    .circle {
         position: absolute;
-        top: 50%;
         left: 1px;
+        top: 50%;
         transform: translateY(-50%);
+        display: inline-block;
         width: 18px;
         height: 18px;
-        border-radius: 50%;
-        display: inline-block;
         background: linear-gradient(180deg, $white 0%, $white-1 100%);
         box-shadow:
             1px 2px 4px 0 rgba($black, 0.1),
             0 2px 2px 0 rgba($black, 0.1),
             1px 1px 2px 0 rgba($black, 0.1);
+        border-radius: 50%;
     }
 }

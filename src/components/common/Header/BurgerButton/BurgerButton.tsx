@@ -1,11 +1,18 @@
+import type { FC } from 'react';
+
 import Icon from '@/components/ui/Icon';
 
 import scss from './BurgerButton.module.scss';
 
-const BurgerButton = () => {
+interface Props {
+    burgerMenuIsOpen: boolean;
+    onClick: () => void;
+}
+
+const BurgerButton: FC<Props> = ({ burgerMenuIsOpen, onClick }) => {
     return (
-        <button type="button" className={scss.btn}>
-            <Icon variant="burger" className={scss.icon} />
+        <button onClick={onClick} className={scss.burgerButton}>
+            <Icon variant={burgerMenuIsOpen ? 'close' : 'burger'} className={scss.icon} />
         </button>
     );
 };

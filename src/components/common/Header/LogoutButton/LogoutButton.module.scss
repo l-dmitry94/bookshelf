@@ -1,20 +1,26 @@
-.authButton {
-    width: 184px;
-    height: 48px;
+.logoutButton {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: $violet;
+    align-self: flex-start;
+    gap: 4px;
+    background-color: $white;
     border: 1.5px solid $black;
     border-radius: 18px;
-    padding: 14px;
+    padding: 14px 24px;
+
+    @include media-rules(tablet) {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        justify-content: space-between;
+        gap: 0;
+    }
 
     .text {
         font-weight: 500;
         font-size: 14px;
         line-height: 1.29;
         letter-spacing: -0.04em;
-        color: $white;
     }
 
     .icon {
