@@ -24,3 +24,16 @@
         stroke: $yellow;
     }
 }
+
+.overlay {
+    background-color: $violet;
+}
+
+.modal {
+    background-color: $white-1;
+    padding: 40px 20px;
+
+    @include media-rules(tablet) {
+        padding: 80px 40px;
+    }
+}
