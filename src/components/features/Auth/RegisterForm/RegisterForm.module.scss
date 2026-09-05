@@ -6,6 +6,11 @@
         flex-direction: column;
         gap: 24px;
         margin-bottom: 24px;
+
+        @include media-rules(tablet) {
+            gap: 28px;
+            margin-bottom: 40px;
+        }
     }
 
     .field {
@@ -26,6 +31,12 @@
         @include transition(border-color);
         padding: 0 66px 0 24px;
 
+        @include media-rules(tablet) {
+            height: 64px;
+            font-size: 18px;
+            line-height: 1.33;
+        }
+
         &Error {
             border-color: #e32626;
         }
@@ -44,6 +55,11 @@
         height: 18px;
         fill: transparent;
         stroke: $black;
+
+        @include media-rules(tablet) {
+            width: 28px;
+            height: 28px;
+        }
     }
 
     .submitButton {
@@ -58,6 +74,13 @@
         border-radius: 40px;
         background-color: $black;
         margin-bottom: 14px;
+
+        @include media-rules(tablet) {
+            height: 64px;
+            font-size: 18px;
+            line-height: 1.33;
+            margin-bottom: 20px;
+        }
     }
 
     .actions {
@@ -75,6 +98,11 @@
         text-decoration-skip-ink: none;
         text-transform: uppercase;
         color: $violet;
+
+        @include media-rules(tablet) {
+            font-size: 18px;
+            line-height: 1.33;
+        }
 
         &:disabled {
             color: rgba($black, 0.5);

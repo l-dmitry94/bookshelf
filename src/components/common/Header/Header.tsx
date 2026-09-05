@@ -45,7 +45,7 @@ const Header = () => {
                 </Container>
             </div>
 
-            <BurgerMenu isLoggedIn={isLoggedIn} burgerMenuIsOpen={burgerMenuIsOpen} />
+            {isMobile && <BurgerMenu isLoggedIn={isLoggedIn} burgerMenuIsOpen={burgerMenuIsOpen} />}
         </header>
     );
 };
