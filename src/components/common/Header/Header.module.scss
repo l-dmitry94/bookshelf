@@ -1,0 +1,44 @@
+.header {
+    position: relative;
+
+    .content {
+        position: relative;
+        z-index: 2;
+        border: 1.5px solid $black;
+        border-radius: 0 0 8px 8px;
+        background-color: $white;
+        padding: 18px 0;
+
+        @include media-rules(tablet) {
+            padding: 14px 0;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .leftWrapper {
+        @include media-rules(tablet) {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        @include media-rules(desktop) {
+            gap: 76px;
+        }
+    }
+
+    .rightWrapper {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        @include media-rules(tablet) {
+            gap: 24px;
+        }
+    }
+}

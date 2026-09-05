@@ -1,0 +1,39 @@
+.authButton {
+    width: 184px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: flex-start;
+    background-color: $violet;
+    border: 1.5px solid $black;
+    border-radius: 18px;
+    padding: 14px;
+
+    .text {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+        color: $white;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        fill: transparent;
+        stroke: $yellow;
+    }
+}
+
+.overlay {
+    background-color: $violet;
+}
+
+.modal {
+    background-color: $white-1;
+    padding: 40px 20px;
+
+    @include media-rules(tablet) {
+        padding: 80px 40px;
+    }
+}

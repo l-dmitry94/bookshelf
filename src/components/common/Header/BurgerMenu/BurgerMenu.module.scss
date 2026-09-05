@@ -1,0 +1,43 @@
+.burgerMenu {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    height: 100vh;
+    background: radial-gradient(190.93% 189.32% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(opacity, visibility);
+
+    &Active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .imageWrapper {
+        position: absolute;
+        bottom: -170px;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .image {
+        max-width: 450px;
+        width: 100%;
+        height: 439px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+    .wrapper {
+        height: 100%;
+        padding: 84px 0 20px;
+    }
+
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
