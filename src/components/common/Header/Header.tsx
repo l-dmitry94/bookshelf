@@ -13,7 +13,7 @@ import { useMedia } from '@/hooks/useMedia';
 import scss from './Header.module.scss';
 
 const Header = () => {
-    const isLoggedIn = true;
+    const isLoggedIn = false;
     const [burgerMenuIsOpen, setBurgerMenuIsOpen] = useState(false);
     const { isMobile } = useMedia();
 
