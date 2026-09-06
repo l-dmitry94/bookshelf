@@ -12,7 +12,11 @@ import type { AnyObjectSchema } from 'yup';
 interface Props<T extends FieldValues> {
     onSubmit: SubmitHandler<T>;
     schema?: AnyObjectSchema;
-    children: (props: { register: UseFormRegister<T>; errors: FieldErrors<T> }) => ReactNode;
+    children: (props: {
+        register: UseFormRegister<T>;
+        errors: FieldErrors<T>;
+        isSubmitting: boolean;
+    }) => ReactNode;
     className?: string;
 }
 
@@ -20,7 +24,7 @@ const Form = <T extends FieldValues>({ onSubmit, children, schema, className }: 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isSubmitting },
         reset,
     } = useForm<T>({
         resolver: schema && yupResolver(schema),
@@ -35,7 +39,7 @@ const Form = <T extends FieldValues>({ onSubmit, children, schema, className }: 
 
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)} className={className}>
-            {children({ register, errors })}
+            {children({ register, errors, isSubmitting })}
         </form>
     );
 };
