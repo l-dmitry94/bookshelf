@@ -1,9 +1,9 @@
-import { Loading } from 'notiflix';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from '@/components/common/Layout';
 import PrivateRoute from '@/components/PrivateRoute';
+import { LoaderOff, LoaderOn } from '@/helpers/loader';
 import HomePage from '@/pages/HomePage';
 import ShoppingListPage from '@/pages/ShoppingListPage';
 import { useAuthStore } from '@/store/auth.store';
@@ -18,13 +18,13 @@ const App = () => {
 
     useEffect(() => {
         if (!isInitialized) {
-            Loading.standard();
+            LoaderOn();
         } else {
-            Loading.remove();
+            LoaderOff();
         }
 
         return () => {
-            Loading.remove();
+            LoaderOff();
         };
     }, [isInitialized]);
 
