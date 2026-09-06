@@ -1,7 +1,7 @@
-import { Loading } from 'notiflix';
 import { useEffect } from 'react';
 
 import Icon from '@/components/ui/Icon';
+import { LoaderOff, LoaderOn } from '@/helpers/loader';
 import { useAuthStore } from '@/store/auth.store';
 
 import scss from './LogoutButton.module.scss';
@@ -12,13 +12,13 @@ const LogoutButton = () => {
 
     useEffect(() => {
         if (isLoading) {
-            Loading.standard();
+            LoaderOn();
         } else {
-            Loading.remove();
+            LoaderOff();
         }
 
         return () => {
-            Loading.remove();
+            LoaderOff();
         };
     }, [isLoading]);
 

@@ -45,7 +45,7 @@ export const useAuthStore = create<AuthState>(set => ({
             }
         } catch (error) {
             if (error instanceof FirebaseError) {
-                notify('failure', error.message);
+                notify('failure', 'Email already in use');
             } else {
                 notify('failure', 'An unexpected error occurred');
             }
@@ -66,7 +66,7 @@ export const useAuthStore = create<AuthState>(set => ({
             });
         } catch (error) {
             if (error instanceof FirebaseError) {
-                notify('failure', error.message);
+                notify('failure', 'Invalid Credentials');
             } else {
                 notify('failure', 'An unexpected error occurred');
             }

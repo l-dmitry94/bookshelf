@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { Loading } from 'notiflix';
 import { type Dispatch, type FC, type SetStateAction, useEffect } from 'react';
 
 import loginSchema from '@/components/features/Auth/LoginForm/schema';
 import Form from '@/components/ui/Form';
 import Icon from '@/components/ui/Icon';
+import { LoaderOff, LoaderOn } from '@/helpers/loader';
 import { useAuthStore } from '@/store/auth.store';
 import type { ILoginFormData } from '@/types/auth-form.types';
 
@@ -24,13 +24,13 @@ const LoginForm: FC<Props> = ({ setIsLogin }) => {
 
     useEffect(() => {
         if (isLoading) {
-            Loading.standard();
+            LoaderOn();
         } else {
-            Loading.remove();
+            LoaderOff();
         }
 
         return () => {
-            Loading.remove();
+            LoaderOff();
         };
     }, [isLoading]);
 
