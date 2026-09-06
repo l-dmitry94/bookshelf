@@ -9,11 +9,12 @@ import ThemeSwitcher from '@/components/common/Header/ThemeSwitcher';
 import UserBar from '@/components/common/Header/UserBar';
 import Container from '@/components/ui/Container';
 import { useMedia } from '@/hooks/useMedia';
+import { useAuthStore } from '@/store/auth.store';
 
 import scss from './Header.module.scss';
 
 const Header = () => {
-    const isLoggedIn = false;
+    const isLoggedIn = useAuthStore(state => state.isLoggedIn);
     const [burgerMenuIsOpen, setBurgerMenuIsOpen] = useState(false);
     const { isMobile } = useMedia();
 

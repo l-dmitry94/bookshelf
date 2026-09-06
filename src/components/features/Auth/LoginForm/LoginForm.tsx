@@ -1,9 +1,11 @@
 import clsx from 'clsx';
-import type { Dispatch, FC, SetStateAction } from 'react';
+import { Loading } from 'notiflix';
+import { type Dispatch, type FC, type SetStateAction, useEffect } from 'react';
 
 import loginSchema from '@/components/features/Auth/LoginForm/schema';
 import Form from '@/components/ui/Form';
 import Icon from '@/components/ui/Icon';
+import { useAuthStore } from '@/store/auth.store';
 import type { ILoginFormData } from '@/types/auth-form.types';
 
 import scss from './LoginForm.module.scss';
@@ -13,9 +15,24 @@ interface Props {
 }
 
 const LoginForm: FC<Props> = ({ setIsLogin }) => {
-    const handleSubmit = (data: ILoginFormData) => {
-        console.log(data);
+    const login = useAuthStore(state => state.login);
+    const isLoading = useAuthStore(state => state.isLoading);
+
+    const handleSubmit = async (data: ILoginFormData) => {
+        await login(data);
     };
+
+    useEffect(() => {
+        if (isLoading) {
+            Loading.standard();
+        } else {
+            Loading.remove();
+        }
+
+        return () => {
+            Loading.remove();
+        };
+    }, [isLoading]);
 
     return (
         <Form onSubmit={handleSubmit} schema={loginSchema} className={scss.form}>
@@ -57,7 +74,7 @@ const LoginForm: FC<Props> = ({ setIsLogin }) => {
                         </div>
 
                         <button type="submit" className={scss.submitButton}>
-                            Sign up
+                            Sign in
                         </button>
 
                         <div className={scss.actions}>

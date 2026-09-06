@@ -1,9 +1,11 @@
 import clsx from 'clsx';
-import type { Dispatch, FC, SetStateAction } from 'react';
+import { Loading } from 'notiflix';
+import { type Dispatch, type FC, type SetStateAction, useEffect } from 'react';
 
 import registerSchema from '@/components/features/Auth/RegisterForm/schema';
 import Form from '@/components/ui/Form';
 import Icon from '@/components/ui/Icon';
+import { useAuthStore } from '@/store/auth.store';
 import type { IRegisterFormData } from '@/types/auth-form.types';
 
 import scss from './RegisterForm.module.scss';
@@ -13,9 +15,24 @@ interface Props {
 }
 
 const RegisterForm: FC<Props> = ({ setIsLogin }) => {
-    const handleSubmit = (data: IRegisterFormData) => {
-        console.log(data);
+    const register = useAuthStore(state => state.register);
+    const isLoading = useAuthStore(state => state.isLoading);
+
+    const handleSubmit = async (data: IRegisterFormData) => {
+        await register(data);
     };
+
+    useEffect(() => {
+        if (isLoading) {
+            Loading.standard();
+        } else {
+            Loading.remove();
+        }
+
+        return () => {
+            Loading.remove();
+        };
+    }, [isLoading]);
 
     return (
         <Form onSubmit={handleSubmit} schema={registerSchema} className={scss.form}>
@@ -71,12 +88,7 @@ const RegisterForm: FC<Props> = ({ setIsLogin }) => {
                         </button>
 
                         <div className={scss.actions}>
-                            <button
-                                type="button"
-                                className={scss.actionButton}
-                                disabled
-                                onClick={() => setIsLogin(false)}
-                            >
+                            <button type="button" className={scss.actionButton} disabled>
                                 Sign up
                             </button>
 
