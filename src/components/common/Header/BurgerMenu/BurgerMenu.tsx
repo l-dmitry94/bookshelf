@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { User } from 'firebase/auth';
 import type { FC } from 'react';
 
 import { booksImages } from '@/assets/img/books';
@@ -13,9 +14,10 @@ import scss from './BurgerMenu.module.scss';
 interface Props {
     isLoggedIn: boolean;
     burgerMenuIsOpen: boolean;
+    user: User | null;
 }
 
-const BurgerMenu: FC<Props> = ({ isLoggedIn, burgerMenuIsOpen }) => {
+const BurgerMenu: FC<Props> = ({ isLoggedIn, burgerMenuIsOpen, user }) => {
     return (
         <div className={clsx(scss.burgerMenu, burgerMenuIsOpen && scss.burgerMenuActive)}>
             <div className={scss.imageWrapper}>
@@ -31,7 +33,7 @@ const BurgerMenu: FC<Props> = ({ isLoggedIn, burgerMenuIsOpen }) => {
                 <Container className={scss.container}>
                     {isLoggedIn ? (
                         <>
-                            <UserBar />
+                            <UserBar isShowMenu={false} username={user && user.displayName} />
                             <NavigationBar />
                             <LogoutButton />
                         </>

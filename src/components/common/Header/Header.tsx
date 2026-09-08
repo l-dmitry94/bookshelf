@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 
 import AuthButton from '@/components/common/Header/AuthButton';
 import BurgerButton from '@/components/common/Header/BurgerButton';
@@ -14,7 +15,12 @@ import { useAuthStore } from '@/store/auth.store';
 import scss from './Header.module.scss';
 
 const Header = () => {
-    const isLoggedIn = useAuthStore(state => state.isLoggedIn);
+    const { user, isLoggedIn } = useAuthStore(
+        useShallow(state => ({
+            user: state.user,
+            isLoggedIn: state.isLoggedIn,
+        }))
+    );
     const [burgerMenuIsOpen, setBurgerMenuIsOpen] = useState(false);
     const { isMobile } = useMedia();
 
@@ -33,7 +39,14 @@ const Header = () => {
                             <ThemeSwitcher />
 
                             {!isMobile &&
-                                (isLoggedIn ? <UserBar isShowMenu={true} /> : <AuthButton />)}
+                                (isLoggedIn ? (
+                                    <UserBar
+                                        username={user && user.displayName}
+                                        isShowMenu={true}
+                                    />
+                                ) : (
+                                    <AuthButton />
+                                ))}
 
                             {isMobile && (
                                 <BurgerButton
@@ -46,7 +59,13 @@ const Header = () => {
                 </Container>
             </div>
 
-            {isMobile && <BurgerMenu isLoggedIn={isLoggedIn} burgerMenuIsOpen={burgerMenuIsOpen} />}
+            {isMobile && (
+                <BurgerMenu
+                    user={user}
+                    isLoggedIn={isLoggedIn}
+                    burgerMenuIsOpen={burgerMenuIsOpen}
+                />
+            )}
         </header>
     );
 };
