@@ -1,0 +1,39 @@
+.categories {
+    @include media-rules(tablet) {
+        flex-basis: 50%;
+    }
+
+    @include media-rules(desktop) {
+        flex-basis: 100%;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @include media-rules(tablet) {
+            gap: 32px;
+        }
+    }
+}
+
+.scrollbar {
+    :global(.simplebar-track.simplebar-vertical) {
+        width: 8px;
+    }
+
+    :global(.simplebar-scrollbar) {
+        &::before {
+            left: 0;
+            right: 0;
+            opacity: 1;
+            background: #e0e0e0;
+            border-radius: 12px;
+        }
+    }
+
+    :global(.simplebar-scrollbar.simplebar-visible::before) {
+        opacity: 1;
+    }
+}

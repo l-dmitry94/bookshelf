@@ -1,0 +1,45 @@
+.home {
+    padding-top: 40px;
+    padding-bottom: 80px;
+
+    @include media-rules(tablet) {
+        padding-bottom: 100px;
+    }
+
+    @include media-rules(desktop) {
+        padding-bottom: 72px;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        @include media-rules(tablet) {
+            gap: 100px;
+        }
+
+        @include media-rules(desktop) {
+            flex-direction: row;
+            gap: 40px;
+        }
+    }
+
+    .leftWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        @include media-rules(tablet) {
+            flex-direction: row;
+            gap: 32px;
+        }
+
+        @include media-rules(desktop) {
+            max-width: 356px;
+            width: 100%;
+            flex-direction: column;
+            gap: 86px;
+        }
+    }
+}
