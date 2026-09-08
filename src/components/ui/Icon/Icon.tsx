@@ -16,7 +16,8 @@ type Variant =
     | 'trash'
     | 'user'
     | 'email'
-    | 'password';
+    | 'password'
+    | 'foundation';
 
 interface Props extends SVGProps<SVGSVGElement> {
     variant: Variant;

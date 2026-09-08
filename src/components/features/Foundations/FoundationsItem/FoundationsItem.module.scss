@@ -1,0 +1,28 @@
+.foundationsItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    @include transition(transform);
+
+    &Translate {
+        transform: translateY(-156px);
+    }
+
+    .index {
+        font-size: 14px;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+        color: $white;
+    }
+
+    .link {
+        height: 32px;
+        display: flex;
+        align-items: center;
+    }
+
+    .image {
+        max-height: 32px;
+        filter: brightness(0) invert(1);
+    }
+}

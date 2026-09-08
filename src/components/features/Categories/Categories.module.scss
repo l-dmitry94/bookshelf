@@ -4,7 +4,7 @@
     }
 
     @include media-rules(desktop) {
-        flex-basis: 100%;
+        flex-basis: auto;
     }
 
     .list {
