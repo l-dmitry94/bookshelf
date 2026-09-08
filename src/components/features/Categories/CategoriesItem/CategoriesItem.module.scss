@@ -1,0 +1,18 @@
+.category {
+    font-size: 16px;
+    line-height: 1.13;
+    letter-spacing: -0.02em;
+    color: rgba($black, 0.6);
+    cursor: pointer;
+
+    @include media-rules(tablet) {
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
+    &Active {
+        font-weight: 700;
+        color: $violet;
+        text-transform: uppercase;
+    }
+}
