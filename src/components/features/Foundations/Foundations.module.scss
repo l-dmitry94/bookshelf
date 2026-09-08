@@ -1,0 +1,85 @@
+.foundations {
+    border-radius: 16px;
+    box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
+    background: radial-gradient(190.93% 189.32% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%);
+    padding: 24px 40px;
+
+    @include media-rules(tablet) {
+        flex-basis: 50%;
+    }
+
+    @include media-rules(desktop) {
+        flex-basis: auto;
+    }
+
+    .head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 40px;
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 1.09;
+        letter-spacing: -0.04em;
+        color: $white;
+
+        @include media-rules(tablet) {
+            font-size: 24px;
+            line-height: 1.17;
+        }
+    }
+
+    .icon {
+        width: 20px;
+        height: 32px;
+        fill: $white;
+    }
+
+    .list {
+        max-height: 292px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow: hidden;
+        margin-bottom: 20px;
+
+        @include media-rules(tablet) {
+            margin-bottom: 24px;
+        }
+    }
+
+    .button {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: $white;
+        @include transition(transform);
+        margin: 0 auto;
+
+        @include media-rules(tablet) {
+            width: 38px;
+            height: 38px;
+        }
+
+        &Rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    .buttonIcon {
+        width: 20px;
+        height: 20px;
+        fill: $violet;
+
+        @include media-rules(tablet) {
+            width: 22px;
+            height: 22px;
+        }
+    }
+}
