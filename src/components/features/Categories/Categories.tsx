@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import SimpleBar from 'simplebar-react';
 import { useShallow } from 'zustand/react/shallow';
 
@@ -11,31 +11,37 @@ import scss from './Categories.module.scss';
 
 import 'simplebar-react/dist/simplebar.min.css';
 
+const allCategoryItem: ICategory = {
+    list_name: 'All Categories',
+};
+
 const Categories = () => {
-    const { categories, getCategories } = useCategoriesStore(
+    const { categories, getCategories, selectedCategory, setSelectedCategory } = useCategoriesStore(
         useShallow(state => ({
             categories: state.categories,
             getCategories: state.getCategories,
+            selectedCategory: state.selectedCategory,
+            setSelectedCategory: state.setSelectedCategory,
         }))
     );
 
     const { isMobile } = useMedia();
 
-    const allCategoryItem: ICategory = {
-        list_name: 'All Categories',
-    };
-
     const formattedCategories = [allCategoryItem, ...categories].filter(
         item => item.list_name !== ''
     );
 
-    const [activeCategory, setActiveCategory] = useState<string>(allCategoryItem.list_name);
+    const maxHeight = isMobile ? 228 : 472;
 
     useEffect(() => {
         getCategories();
-    }, [getCategories]);
 
-    const maxHeight = isMobile ? 228 : 472;
+        setSelectedCategory(allCategoryItem.list_name);
+    }, [getCategories, setSelectedCategory]);
+
+    const handleClick = (selectedCategory: string) => {
+        setSelectedCategory(selectedCategory);
+    };
 
     return (
         <section className={scss.categories}>
@@ -45,8 +51,8 @@ const Categories = () => {
                         <CategoriesItem
                             key={category.list_name}
                             {...category}
-                            activeItem={category.list_name === activeCategory}
-                            onClick={() => setActiveCategory(category.list_name)}
+                            activeItem={category.list_name === selectedCategory}
+                            onClick={handleClick}
                         />
                     ))}
                 </ul>

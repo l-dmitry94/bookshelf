@@ -1,0 +1,33 @@
+.books {
+    flex-grow: 1;
+
+    .title {
+        margin-bottom: 40px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .listAlt {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 8px;
+
+        @include media-rules(tablet) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            row-gap: 40px;
+            column-gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        @include media-rules(desktop) {
+            column-gap: 24px;
+            margin-bottom: 32px;
+        }
+    }
+}

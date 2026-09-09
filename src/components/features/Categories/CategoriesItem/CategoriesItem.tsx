@@ -7,12 +7,15 @@ import scss from './CategoriesItem.module.scss';
 
 interface Props extends ICategory {
     activeItem: boolean;
-    onClick: () => void;
+    onClick: (selectedCategory: string) => void;
 }
 
 const CategoriesItem: FC<Props> = ({ list_name, activeItem, onClick }) => {
     return (
-        <li className={clsx(scss.category, activeItem && scss.categoryActive)} onClick={onClick}>
+        <li
+            className={clsx(scss.category, activeItem && scss.categoryActive)}
+            onClick={() => onClick(list_name)}
+        >
             {list_name}
         </li>
     );
