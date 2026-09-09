@@ -6,7 +6,7 @@ import type { ICategory } from '@/types/categories.types';
 
 interface ICategoriesStore {
     categories: ICategory[];
-    selectedCategory: string | null;
+    selectedCategory: string;
     isLoading: boolean;
     error: string | null;
 
@@ -16,7 +16,7 @@ interface ICategoriesStore {
 
 const useCategoriesStore = create<ICategoriesStore>()(set => ({
     categories: [],
-    selectedCategory: null,
+    selectedCategory: '',
     isLoading: false,
     error: null,
 
