@@ -1,0 +1,76 @@
+.bookItem {
+    @include media-rules(tablet) {
+        flex-basis: calc((100% - 50px) / 3);
+    }
+
+    @include media-rules(desktop) {
+        flex-basis: calc((100% - 96px) / 5);
+    }
+    &:not(:first-child) {
+        display: none;
+
+        @include media-rules(tablet) {
+            display: block;
+        }
+    }
+
+    &:nth-child(n + 4) {
+        @include media-rules(tablet) {
+            display: none;
+        }
+
+        @include media-rules(desktop) {
+            display: block;
+        }
+    }
+
+    &ShowAll {
+        &:not(:first-child),
+        &:nth-child(n + 4) {
+            display: block;
+        }
+    }
+    .image {
+        width: 100%;
+        height: 485px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 14px;
+
+        @include media-rules(tablet) {
+            height: 316px;
+        }
+
+        @include media-rules(desktop) {
+            height: 256px;
+        }
+    }
+
+    .title {
+        width: 335px;
+        font-size: 16px;
+        line-height: 1.13;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-bottom: 4px;
+
+        @include media-rules(tablet) {
+            width: 218px;
+        }
+
+        @include media-rules(desktop) {
+            width: 180px;
+        }
+    }
+
+    .author {
+        font-style: italic;
+        font-size: 12px;
+        line-height: 1.17;
+        letter-spacing: -0.04em;
+        color: #b4afaf;
+    }
+}

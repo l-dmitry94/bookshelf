@@ -6,14 +6,17 @@ import type { ICategory } from '@/types/categories.types';
 
 interface ICategoriesStore {
     categories: ICategory[];
+    selectedCategory: string | null;
     isLoading: boolean;
     error: string | null;
 
     getCategories: () => Promise<void>;
+    setSelectedCategory: (selectedCategory: string) => void;
 }
 
 const useCategoriesStore = create<ICategoriesStore>()(set => ({
     categories: [],
+    selectedCategory: null,
     isLoading: false,
     error: null,
 
@@ -38,6 +41,10 @@ const useCategoriesStore = create<ICategoriesStore>()(set => ({
         } finally {
             set({ isLoading: false });
         }
+    },
+
+    setSelectedCategory: selectedCategory => {
+        set({ selectedCategory });
     },
 }));
 
