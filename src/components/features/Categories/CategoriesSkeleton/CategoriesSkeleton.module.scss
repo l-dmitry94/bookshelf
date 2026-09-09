@@ -1,0 +1,20 @@
+.skeleton {
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @include media-rules(tablet) {
+            gap: 32px;
+        }
+    }
+
+    .item {
+        width: 300px;
+        height: 18px;
+
+        @include media-rules(tablet) {
+            height: 24px;
+        }
+    }
+}

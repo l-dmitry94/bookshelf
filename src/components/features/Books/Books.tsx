@@ -1,24 +1,31 @@
-import { Fragment, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
-import BookItem from '@/components/features/Books/BookItem';
-import BooksListItem from '@/components/features/Books/BooksListItem';
-import Title from '@/components/ui/Title';
+import BooksByCategory from '@/components/features/Books/BooksByCategory';
+import BooksByCategorySkeleton from '@/components/features/Books/BooksByCategory/BooksByCategorySkeleton';
+import PopularBooks from '@/components/features/Books/PopularBooks';
+import PopularBooksSkeleton from '@/components/features/Books/PopularBooks/PopularBooksSkeleton';
 import useBooksStore from '@/store/books.store';
 import useCategoriesStore from '@/store/categories.store';
 
 import scss from './Books.module.scss';
 
 const Books = () => {
-    const { categoriesWithBooks, getCategoriesWithBooks, booksByCategory, getBooksByCategory } =
-        useBooksStore(
-            useShallow(state => ({
-                categoriesWithBooks: state.categoriesWithBooks,
-                getCategoriesWithBooks: state.getCategoriesWithBooks,
-                booksByCategory: state.booksByCategory,
-                getBooksByCategory: state.getBooksByCategory,
-            }))
-        );
+    const {
+        categoriesWithBooks,
+        getCategoriesWithBooks,
+        booksByCategory,
+        getBooksByCategory,
+        isLoading,
+    } = useBooksStore(
+        useShallow(state => ({
+            categoriesWithBooks: state.categoriesWithBooks,
+            getCategoriesWithBooks: state.getCategoriesWithBooks,
+            booksByCategory: state.booksByCategory,
+            getBooksByCategory: state.getBooksByCategory,
+            isLoading: state.isLoading,
+        }))
+    );
 
     const { selectedCategory, setSelectedCategory } = useCategoriesStore(
         useShallow(state => ({
@@ -39,7 +46,6 @@ const Books = () => {
 
     const handleClick = (category: string) => {
         if (!category) return;
-        console.log(selectedCategory);
 
         setSelectedCategory(category);
     };
@@ -48,31 +54,25 @@ const Books = () => {
         <section className={scss.books}>
             {selectedCategory === 'All Categories' ? (
                 <>
-                    <Title text="Best Sellers Books" className={scss.title} />
-
-                    <ul className={scss.list}>
-                        {categoriesWithBooks.map((item, index) => (
-                            <Fragment key={item.list_name}>
-                                {index > 0 && (
-                                    <BooksListItem
-                                        list_name={item.list_name}
-                                        books={item.books}
-                                        onClick={handleClick}
-                                    />
-                                )}
-                            </Fragment>
-                        ))}
-                    </ul>
+                    {!isLoading ? (
+                        <PopularBooks
+                            categoriesWithBooks={categoriesWithBooks}
+                            onClick={handleClick}
+                        />
+                    ) : (
+                        <PopularBooksSkeleton />
+                    )}
                 </>
             ) : (
                 <>
-                    {selectedCategory && <Title text={selectedCategory} className={scss.title} />}
-
-                    <ul className={scss.listAlt}>
-                        {booksByCategory.map(book => (
-                            <BookItem key={book._id} book={book} isSelectedCategory={true} />
-                        ))}
-                    </ul>
+                    {!isLoading ? (
+                        <BooksByCategory
+                            selectedCategory={selectedCategory}
+                            booksByCategory={booksByCategory}
+                        />
+                    ) : (
+                        <BooksByCategorySkeleton />
+                    )}
                 </>
             )}
         </section>
