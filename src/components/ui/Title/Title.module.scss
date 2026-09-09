@@ -1,0 +1,15 @@
+.title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.19;
+    letter-spacing: -0.04em;
+
+    &Accent {
+        color: $violet;
+    }
+
+    @include media-rules(tablet) {
+        font-size: 48px;
+        line-height: 1.08;
+    }
+}
