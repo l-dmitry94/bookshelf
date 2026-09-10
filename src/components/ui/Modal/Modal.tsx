@@ -22,6 +22,7 @@ const Modal: FC<Props> = ({ modalIsOpen, onClose, children, overlayClassName, cl
             isOpen={modalIsOpen}
             onRequestClose={onClose}
             closeTimeoutMS={300}
+            bodyOpenClassName={scss.bodyOpen}
             overlayClassName={clsx(scss.overlay, overlayClassName)}
             className={clsx(scss.modal, className)}
         >

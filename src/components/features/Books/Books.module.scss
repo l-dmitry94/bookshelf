@@ -1,3 +1,12 @@
 .books {
     flex-grow: 1;
 }
+
+.modal {
+    border: 2px solid $black;
+    padding: 40px 24px;
+
+    @include media-rules(tablet) {
+        padding: 40px;
+    }
+}

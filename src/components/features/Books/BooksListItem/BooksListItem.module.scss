@@ -45,6 +45,12 @@
         text-transform: uppercase;
         border: 2px solid $violet;
         border-radius: 40px;
+        @include transition(background-color, color);
         padding: 14px 28px;
+
+        &:is(:hover, :focus) {
+            background-color: $violet;
+            color: $white;
+        }
     }
 }

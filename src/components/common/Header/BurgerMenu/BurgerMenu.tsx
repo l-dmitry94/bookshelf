@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { User } from 'firebase/auth';
-import type { FC } from 'react';
+import { type FC, useEffect } from 'react';
 
 import { booksImages } from '@/assets/img/books';
 import AuthButton from '@/components/common/Header/AuthButton';
@@ -18,6 +18,17 @@ interface Props {
 }
 
 const BurgerMenu: FC<Props> = ({ isLoggedIn, burgerMenuIsOpen, user }) => {
+    useEffect(() => {
+        if (burgerMenuIsOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [burgerMenuIsOpen]);
     return (
         <div className={clsx(scss.burgerMenu, burgerMenuIsOpen && scss.burgerMenuActive)}>
             <div className={scss.imageWrapper}>

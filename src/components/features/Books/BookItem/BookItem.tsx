@@ -8,14 +8,24 @@ import scss from './BookItem.module.scss';
 interface Props {
     book: IBook;
     isSelectedCategory?: boolean;
+    onBookClick: (id: string) => void;
 }
 
-const BookItem: FC<Props> = ({ book, isSelectedCategory = false }) => {
-    const { author, book_image, title } = book;
+const BookItem: FC<Props> = ({ book, isSelectedCategory = false, onBookClick }) => {
+    const { _id, author, book_image, title } = book;
 
     return (
-        <li className={clsx(scss.bookItem, isSelectedCategory && scss.bookItemShowAll)}>
-            <img src={book_image} alt={title} className={scss.image} />
+        <li
+            onClick={() => onBookClick(_id)}
+            className={clsx(scss.bookItem, isSelectedCategory && scss.bookItemShowAll)}
+        >
+            <img
+                src={book_image}
+                alt={title}
+                loading="lazy"
+                decoding="async"
+                className={scss.image}
+            />
 
             <div className={scss.info}>
                 <h4 title={title} className={scss.title}>
