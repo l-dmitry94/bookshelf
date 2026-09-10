@@ -10,9 +10,10 @@ import scss from './PopularBooks.module.scss';
 interface Props {
     categoriesWithBooks: ICategoryWithBooks[];
     onClick: (selectedCategory: string) => void;
+    onBookClick: (id: string) => void;
 }
 
-const PopularBooks: FC<Props> = ({ categoriesWithBooks, onClick }) => {
+const PopularBooks: FC<Props> = ({ categoriesWithBooks, onClick, onBookClick }) => {
     return (
         <>
             <Title text="Best Sellers Books" />
@@ -25,6 +26,7 @@ const PopularBooks: FC<Props> = ({ categoriesWithBooks, onClick }) => {
                                 list_name={item.list_name}
                                 books={item.books}
                                 onClick={onClick}
+                                onBookClick={onBookClick}
                             />
                         )}
                     </Fragment>

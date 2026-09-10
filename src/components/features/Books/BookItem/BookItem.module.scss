@@ -1,4 +1,6 @@
 .bookItem {
+    cursor: pointer;
+
     @include media-rules(tablet) {
         flex-basis: calc((100% - 50px) / 3);
     }
