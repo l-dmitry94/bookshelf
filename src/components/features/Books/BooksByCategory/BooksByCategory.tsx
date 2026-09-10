@@ -9,16 +9,22 @@ import scss from './BooksByCategory.module.scss';
 interface Props {
     selectedCategory: string;
     booksByCategory: IBook[];
+    onBookClick: (id: string) => void;
 }
 
-const BooksByCategory: FC<Props> = ({ selectedCategory, booksByCategory }) => {
+const BooksByCategory: FC<Props> = ({ selectedCategory, booksByCategory, onBookClick }) => {
     return (
         <>
             <Title text={selectedCategory} className={scss.title} />
 
             <ul className={scss.list}>
                 {booksByCategory.map(book => (
-                    <BookItem key={book._id} book={book} isSelectedCategory={true} />
+                    <BookItem
+                        key={book._id}
+                        book={book}
+                        isSelectedCategory={true}
+                        onBookClick={onBookClick}
+                    />
                 ))}
             </ul>
         </>

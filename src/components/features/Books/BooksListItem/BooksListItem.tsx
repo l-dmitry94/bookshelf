@@ -7,16 +7,17 @@ import scss from './BooksListItem.module.scss';
 
 interface Props extends ICategoryWithBooks {
     onClick: (category: string) => void;
+    onBookClick: (id: string) => void;
 }
 
-const BooksListItem: FC<Props> = ({ list_name, books, onClick }) => {
+const BooksListItem: FC<Props> = ({ list_name, books, onClick, onBookClick }) => {
     return (
         <li className={scss.booksListItem}>
             <h3 className={scss.title}>{list_name}</h3>
 
             <ul className={scss.list}>
                 {books.map(book => (
-                    <BookItem key={book._id} book={book} />
+                    <BookItem key={book._id} book={book} onBookClick={onBookClick} />
                 ))}
             </ul>
 
