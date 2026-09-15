@@ -106,7 +106,7 @@
         border-radius: 40px;
         @include transition(background-color, color);
         margin-top: 44px;
-        padding: 14px 28px;
+        padding: 14px 23px;
 
         @include media-rules(tablet) {
             width: 100%;
@@ -119,6 +119,22 @@
         &:is(:hover, :focus) {
             background-color: $violet;
             color: $white;
+        }
+    }
+
+    .notification {
+        max-width: 242px;
+        font-size: 10px;
+        line-height: 1.2;
+        letter-spacing: -0.04em;
+        text-align: center;
+        color: rgba($black, 0.5);
+        margin: 8px auto 0;
+
+        @include media-rules(tablet) {
+            max-width: 324px;
+            font-size: 12px;
+            line-height: 1.17;
         }
     }
 }

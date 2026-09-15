@@ -2,16 +2,21 @@ import { type FC, Fragment } from 'react';
 import SimpleBar from 'simplebar-react';
 
 import { buyLinksImages } from '@/assets/img/buy-links';
-import type { IBookDetail } from '@/types/books.types';
+import hasBookInCart from '@/helpers/checkBook';
+import type { IBook, IBookDetail } from '@/types/books.types';
 
 import scss from './BookDetail.module.scss';
 
 interface Props {
     book: IBookDetail;
+    books: IBook[];
+    onCartItem: (book: IBook) => void;
 }
 
-const BookDetail: FC<Props> = ({ book }) => {
+const BookDetail: FC<Props> = ({ book, books, onCartItem }) => {
     const { author, book_image, buy_links, description, title } = book;
+
+    const isAddedInCart = hasBookInCart(books, book._id);
 
     return (
         <div className={scss.content}>
@@ -52,10 +57,17 @@ const BookDetail: FC<Props> = ({ book }) => {
             </SimpleBar>
 
             <div className={scss.buttonWrapper}>
-                <button type="button" className={scss.button}>
-                    add to shopping list
+                <button type="button" onClick={() => onCartItem(book)} className={scss.button}>
+                    {isAddedInCart ? 'remove from the shopping list' : 'add to shopping list'}
                 </button>
             </div>
+
+            {isAddedInCart && (
+                <p className={scss.notification}>
+                    Сongratulations! You have added the book to the shopping list. To delete, press
+                    the button “Remove from the shopping list”.
+                </p>
+            )}
         </div>
     );
 };

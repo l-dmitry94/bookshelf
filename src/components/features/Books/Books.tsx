@@ -7,14 +7,19 @@ import BooksByCategorySkeleton from '@/components/features/Books/BooksByCategory
 import PopularBooks from '@/components/features/Books/PopularBooks';
 import PopularBooksSkeleton from '@/components/features/Books/PopularBooks/PopularBooksSkeleton';
 import Modal from '@/components/ui/Modal';
+import hasBookInCart from '@/helpers/checkBook';
 import useBooksStore from '@/store/books.store';
 import useCategoriesStore from '@/store/categories.store';
+import type { IBook } from '@/types/books.types';
 
 import scss from './Books.module.scss';
 
 const Books = () => {
     const {
         book,
+        booksInCart,
+        addBookInCart,
+        removeBookFromCart,
         getBookById,
         clearBook,
         categoriesWithBooks,
@@ -25,6 +30,9 @@ const Books = () => {
     } = useBooksStore(
         useShallow(state => ({
             book: state.book,
+            booksInCart: state.booksInCart,
+            addBookInCart: state.addBookInCart,
+            removeBookFromCart: state.removeBookFromCart,
             getBookById: state.getBookById,
             clearBook: state.clearBook,
             categoriesWithBooks: state.categoriesWithBooks,
@@ -76,6 +84,14 @@ const Books = () => {
         }, 300);
     };
 
+    const handleCartItem = (book: IBook) => {
+        if (hasBookInCart(booksInCart, book._id)) {
+            return removeBookFromCart(book._id);
+        }
+
+        addBookInCart(book);
+    };
+
     return (
         <section className={scss.books}>
             {selectedCategory === 'All Categories' ? (
@@ -105,7 +121,9 @@ const Books = () => {
             )}
 
             <Modal modalIsOpen={modalIsOpen} onClose={handleCloseModal} className={scss.modal}>
-                {book && <BookDetail book={book} />}
+                {book && (
+                    <BookDetail book={book} books={booksInCart || []} onCartItem={handleCartItem} />
+                )}
             </Modal>
         </section>
     );
